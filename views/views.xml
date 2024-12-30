@@ -1,0 +1,118 @@
+<odoo>
+    <record id="action_isp_connections" model="ir.actions.act_window">
+        <field name="name">Conexiones</field>
+        <field name="res_model">isp.connection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_isp_plans" model="ir.actions.act_window">
+        <field name="name">Planes</field>
+        <field name="res_model">isp.plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_isp_devices" model="ir.actions.act_window">
+        <field name="name">Dispositivos</field>
+        <field name="res_model">isp.device</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_isp_connection_tree" model="ir.ui.view">
+        <field name="name">isp.connection.tree</field>
+        <field name="model">isp.connection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="plan_id"/>
+                <field name="device_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_isp_connection_form" model="ir.ui.view">
+        <field name="name">isp.connection.form</field>
+        <field name="model">isp.connection</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="customer_id"/>
+                        <field name="plan_id"/>
+                        <field name="device_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_isp_plan_tree" model="ir.ui.view">
+        <field name="name">isp.plan.tree</field>
+        <field name="model">isp.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="download_speed"/>
+                <field name="upload_speed"/>
+                <field name="price"/>
+                <field name="active_clients_count"/>
+                <field name="suspended_clients_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_isp_plan_form" model="ir.ui.view">
+        <field name="name">isp.plan.form</field>
+        <field name="model">isp.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="download_speed"/>
+                        <field name="upload_speed"/>
+                        <field name="price"/>
+                        <field name="active_clients_count"/>
+                        <field name="suspended_clients_count"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_isp_device_tree" model="ir.ui.view">
+        <field name="name">isp.device.tree</field>
+        <field name="model">isp.device</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="mac_address"/>
+                <field name="ip_address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_isp_device_form" model="ir.ui.view">
+        <field name="name">isp.device.form</field>
+        <field name="model">isp.device</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="mac_address"/>
+                        <field name="ip_address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_isp_root" name="ISP" sequence="10"/>
+
+    <menuitem id="menu_isp_connections" name="Conexiones" parent="menu_isp_root" action="action_isp_connections" sequence="20"/>
+    <menuitem id="menu_isp_plans" name="Planes" parent="menu_isp_root" action="action_isp_plans" sequence="30"/>
+    <menuitem id="menu_isp_devices" name="Dispositivos" parent="menu_isp_root" action="action_isp_devices" sequence="40"/>
+
+</odoo>
